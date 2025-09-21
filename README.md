@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Features
+
+- **Navigation Bar**: Custom NavBar component with responsive design
+  - Logo with bug icon (PiBugDroidFill from react-icons)
+  - Navigation links for Dashboard and Issues
+  - Styled with Tailwind CSS for modern UI
+- **Issue Tracking**: Built for managing and tracking issues
+- **Modern UI**: Clean, responsive design with Tailwind CSS
+
 ## Getting Started
 
 First, run the development server:
@@ -15,6 +24,13 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+## Project Structure
+
+- `app/NavBar.tsx` - Main navigation component
+- `app/page.tsx` - Home page
+- `app/layout.tsx` - Root layout with NavBar integration
+- `app/globals.css` - Global styles with Tailwind CSS
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
