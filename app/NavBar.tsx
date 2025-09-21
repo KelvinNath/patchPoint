@@ -1,8 +1,12 @@
+'use client' 
 import React from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { PiBugDroidFill } from "react-icons/pi";
+import classnames from 'classnames';
 
 const NavBar = () => {
+  const pathname = usePathname()
   const links = [
     {label:'Dashboard', href:'/dashboard'},
     {label:'Issues', href:'/issues'}, 
@@ -17,8 +21,13 @@ const NavBar = () => {
             {links.map(link =>
                 <li key={link.href} className='mr-6'>
                     <Link 
-                        className='text-xl text-green-500 font-bold'
-                        
+                        className={classnames(
+                            'text-xl font-bold transition-colors duration-200',
+                            {
+                                'text-blue-600': pathname === link.href,
+                                'text-green-500 hover:text-green-700': pathname !== link.href
+                            }
+                        )}
                         href={link.href}
                     >
                         {link.label}
