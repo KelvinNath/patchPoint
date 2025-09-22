@@ -9,7 +9,8 @@ A modern issue tracking application built with Next.js, TypeScript, and Tailwind
   - Responsive navigation with smooth transitions
   - Active page detection using Next.js usePathname hook
 - **Issue Management**: Complete issue tracking system
-  - Issues page with Radix UI components
+  - Issues listing page with Radix UI components
+  - New Issue creation form with TextField, TextArea, and Button
   - RESTful API endpoints for CRUD operations
   - Database schema with Issue model and status tracking
 - **Modern UI**: Clean, responsive design with Tailwind CSS
@@ -39,7 +40,9 @@ patchpoint/
 │   ├── NavBar.tsx          # Main navigation component with active states
 │   ├── page.tsx            # Home page
 │   ├── issues/
-│   │   └── page.tsx        # Issues management page with Radix UI
+│   │   ├── page.tsx        # Issues listing page with Radix UI
+│   │   └── new/
+│   │       └── page.tsx    # New issue creation form
 │   ├── layout.tsx          # Root layout with NavBar and Theme integration
 │   └── globals.css         # Global styles with Tailwind CSS
 ├── prisma/
@@ -88,6 +91,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   - Blue for active page, green for inactive with hover effects
   - Smooth color transitions using classnames utility
 - **Modern Component Library**: Radix UI Themes for professional components
+  - TextField, TextArea, and Button components
+  - Consistent design system and accessibility
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Smooth Transitions**: CSS transitions for better user experience
 - **Modern Typography**: Clean, readable text with proper spacing
@@ -124,6 +129,16 @@ curl -X POST http://localhost:3000/api/issues \
   -H "Content-Type: application/json" \
   -d '{"title": "Bug Report", "description": "Issue description"}'
 ```
+
+## 📝 Pages
+
+### Issue Management
+- **`/issues`** - Issues listing page with Radix UI components
+- **`/issues/new`** - New issue creation form with:
+  - TextField for issue title
+  - TextArea for issue description  
+  - Button for form submission
+  - Responsive layout with Tailwind CSS spacing
 
 ## Learn More
 
