@@ -9,11 +9,12 @@ A modern issue tracking application built with Next.js, TypeScript, and Tailwind
   - Responsive navigation with smooth transitions
   - Active page detection using Next.js usePathname hook
 - **Issue Management**: Complete issue tracking system
-  - Issues listing page with Radix UI components
+  - Issues listing page with navigation to create new issues
   - New Issue creation form with TextField, TextArea, and Button
   - RESTful API endpoints for CRUD operations
   - Database schema with Issue model and status tracking
 - **Modern UI**: Clean, responsive design with Tailwind CSS
+- **Theme System**: Radix UI Themes with custom configuration
 - **Database Ready**: Prisma ORM configured for MySQL
 - **TypeScript**: Full type safety throughout the application
 
@@ -40,10 +41,11 @@ patchpoint/
 │   ├── NavBar.tsx          # Main navigation component with active states
 │   ├── page.tsx            # Home page
 │   ├── issues/
-│   │   ├── page.tsx        # Issues listing page with Radix UI
+│   │   ├── page.tsx        # Issues listing page with New Issue button
 │   │   └── new/
 │   │       └── page.tsx    # New issue creation form
-│   ├── layout.tsx          # Root layout with NavBar and Theme integration
+│   ├── layout.tsx          # Root layout with Theme, ThemePanel, and NavBar
+│   ├── theme.config.css    # Custom theme configuration
 │   └── globals.css         # Global styles with Tailwind CSS
 ├── prisma/
 │   ├── client.ts           # Prisma client configuration
@@ -93,6 +95,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **Modern Component Library**: Radix UI Themes for professional components
   - TextField, TextArea, and Button components
   - Consistent design system and accessibility
+  - Theme Panel for development and customization
+  - Custom theme configuration with Inter font integration
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Smooth Transitions**: CSS transitions for better user experience
 - **Modern Typography**: Clean, readable text with proper spacing
@@ -133,12 +137,25 @@ curl -X POST http://localhost:3000/api/issues \
 ## 📝 Pages
 
 ### Issue Management
-- **`/issues`** - Issues listing page with Radix UI components
+- **`/issues`** - Issues listing page with "New Issue" button navigation
 - **`/issues/new`** - New issue creation form with:
   - TextField for issue title
   - TextArea for issue description  
   - Button for form submission
   - Responsive layout with Tailwind CSS spacing
+
+## 🎨 Theme Configuration
+
+### Radix UI Themes Setup
+- **Theme Provider**: Light appearance with blue accent color
+- **Theme Panel**: Development tool for theme customization
+- **Custom Font**: Inter font integration via CSS variables
+- **Theme Config**: Custom theme configuration file (`theme.config.css`)
+
+### Layout Features
+- **Consistent Spacing**: Padding applied to main content area
+- **Theme Integration**: Radix UI Themes wrapper with custom configuration
+- **Font Variables**: CSS custom properties for font family
 
 ## Learn More
 
