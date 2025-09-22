@@ -10,8 +10,10 @@ A modern issue tracking application built with Next.js, TypeScript, and Tailwind
   - Active page detection using Next.js usePathname hook
 - **Issue Management**: Complete issue tracking system
   - Issues listing page with navigation to create new issues
-  - New Issue creation form with TextField, Markdown Editor, and Button
+  - Advanced issue creation form with validation and error handling
   - Rich text editing with EasyMDE markdown editor
+  - Real-time form validation with user feedback
+  - Toast notifications for success and error states
   - RESTful API endpoints for CRUD operations
   - Database schema with Issue model and status tracking
 - **Modern UI**: Clean, responsive design with Tailwind CSS
@@ -27,6 +29,9 @@ A modern issue tracking application built with Next.js, TypeScript, and Tailwind
 - **Database**: Prisma ORM with MySQL
 - **UI Components**: Radix UI Themes for modern components
 - **Rich Text Editor**: EasyMDE markdown editor with toolbar
+- **Toast Notifications**: React Hot Toast for user feedback
+- **Form Validation**: Client-side validation with real-time feedback
+- **HTTP Client**: Axios for API communication
 - **Validation**: Zod for schema validation
 - **Utilities**: Classnames for conditional styling
 - **Icons**: React Icons
@@ -45,10 +50,16 @@ patchpoint/
 │   ├── issues/
 │   │   ├── page.tsx        # Issues listing page with New Issue button
 │   │   └── new/
-│   │       └── page.tsx    # New issue creation form
-│   ├── layout.tsx          # Root layout with Theme, ThemePanel, and NavBar
+│   │       └── page.tsx    # Advanced issue creation form with validation
+│   ├── layout.tsx          # Root layout with Theme, ThemePanel, NavBar, and Toaster
 │   ├── theme.config.css    # Custom theme configuration
-│   └── globals.css         # Global styles with Tailwind CSS
+│   └── globals.css         # Global styles with Tailwind CSS and EasyMDE
+├── components/
+│   └── ui/
+│       ├── LoadingButton.tsx   # Button with loading spinner
+│       ├── ErrorMessage.tsx    # Reusable error message component
+│       ├── FormField.tsx       # Text field with validation
+│       └── MarkdownEditor.tsx  # Wrapped SimpleMDE with error handling
 ├── prisma/
 │   ├── client.ts           # Prisma client configuration
 │   └── schema.prisma       # Database schema with Issue model (MySQL)
@@ -104,6 +115,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   - Live preview capabilities
   - Client-side rendering to avoid SSR issues
   - Professional markdown editing experience
+- **Form Validation & UX**: Advanced form handling
+  - Real-time validation with immediate feedback
+  - Field-specific error messages
+  - Loading states with animated spinners
+  - Toast notifications for all user actions
+  - Form validation before API submission
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Smooth Transitions**: CSS transitions for better user experience
 - **Modern Typography**: Clean, readable text with proper spacing
@@ -120,6 +137,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **Radix UI**: Modern, accessible component library
 - **EasyMDE**: Rich markdown editor with toolbar
 - **React SimpleMDE Editor**: React wrapper for EasyMDE
+- **React Hot Toast**: Toast notifications for user feedback
+- **Axios**: HTTP client for API communication
 - **Zod**: Runtime type validation for API endpoints
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
@@ -147,12 +166,30 @@ curl -X POST http://localhost:3000/api/issues \
 
 ### Issue Management
 - **`/issues`** - Issues listing page with "New Issue" button navigation
-- **`/issues/new`** - New issue creation form with:
-  - TextField for issue title
+- **`/issues/new`** - Advanced issue creation form with:
+  - Form validation with real-time feedback
+  - TextField for issue title with validation
   - EasyMDE markdown editor for rich text description
-  - Button for form submission
+  - Loading button with animated spinner
+  - Toast notifications for success/error states
+  - Field-specific error messages
   - Client-side rendering to prevent SSR issues
   - Responsive layout with Tailwind CSS spacing
+
+## 🧩 UI Components
+
+### Reusable Components (`/components/ui/`)
+- **`LoadingButton`**: Button with loading spinner and disabled states
+- **`ErrorMessage`**: Reusable error message display component
+- **`FormField`**: Text field with label, validation, and error handling
+- **`MarkdownEditor`**: Wrapped SimpleMDE with error states and SSR handling
+
+### Component Features
+- **TypeScript Support**: Fully typed with proper interfaces
+- **Error Handling**: Built-in error display and validation
+- **Loading States**: Visual feedback during async operations
+- **Accessibility**: Proper ARIA labels and keyboard navigation
+- **Consistent Styling**: Unified design system across components
 
 ## 🎨 Theme Configuration
 
@@ -166,6 +203,7 @@ curl -X POST http://localhost:3000/api/issues \
 - **Consistent Spacing**: Padding applied to main content area
 - **Theme Integration**: Radix UI Themes wrapper with custom configuration
 - **Font Variables**: CSS custom properties for font family
+- **Toast Notifications**: Global toast system with custom styling
 
 ## Learn More
 

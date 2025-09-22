@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavBar from './NavBar'
 import { Theme, ThemePanel } from '@radix-ui/themes'
+import { Toaster } from 'react-hot-toast'
 const inter = Inter({
    subsets: ['latin'],
    variable: '--font-inter',
@@ -27,6 +28,30 @@ export default function RootLayout({
         <NavBar/>
         <main className='p-5'>{children}</main>
         <ThemePanel />
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: '#363636',
+              color: '#fff',
+            },
+            success: {
+              duration: 3000,
+              iconTheme: {
+                primary: '#4ade80',
+                secondary: '#fff',
+              },
+            },
+            error: {
+              duration: 5000,
+              iconTheme: {
+                primary: '#ef4444',
+                secondary: '#fff',
+              },
+            },
+          }}
+        />
         </Theme>
         </body>
     </html>
