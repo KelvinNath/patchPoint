@@ -10,7 +10,8 @@ A modern issue tracking application built with Next.js, TypeScript, and Tailwind
   - Active page detection using Next.js usePathname hook
 - **Issue Management**: Complete issue tracking system
   - Issues listing page with navigation to create new issues
-  - New Issue creation form with TextField, TextArea, and Button
+  - New Issue creation form with TextField, Markdown Editor, and Button
+  - Rich text editing with EasyMDE markdown editor
   - RESTful API endpoints for CRUD operations
   - Database schema with Issue model and status tracking
 - **Modern UI**: Clean, responsive design with Tailwind CSS
@@ -25,6 +26,7 @@ A modern issue tracking application built with Next.js, TypeScript, and Tailwind
 - **Styling**: Tailwind CSS 3.4.17
 - **Database**: Prisma ORM with MySQL
 - **UI Components**: Radix UI Themes for modern components
+- **Rich Text Editor**: EasyMDE markdown editor with toolbar
 - **Validation**: Zod for schema validation
 - **Utilities**: Classnames for conditional styling
 - **Icons**: React Icons
@@ -97,6 +99,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   - Consistent design system and accessibility
   - Theme Panel for development and customization
   - Custom theme configuration with Inter font integration
+- **Rich Text Editing**: EasyMDE markdown editor
+  - Full markdown toolbar with formatting options
+  - Live preview capabilities
+  - Client-side rendering to avoid SSR issues
+  - Professional markdown editing experience
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Smooth Transitions**: CSS transitions for better user experience
 - **Modern Typography**: Clean, readable text with proper spacing
@@ -111,6 +118,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **Prisma Client**: Auto-generated database client for type-safe queries
 - **Classnames**: Utility for conditional CSS class management
 - **Radix UI**: Modern, accessible component library
+- **EasyMDE**: Rich markdown editor with toolbar
+- **React SimpleMDE Editor**: React wrapper for EasyMDE
 - **Zod**: Runtime type validation for API endpoints
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
@@ -140,8 +149,9 @@ curl -X POST http://localhost:3000/api/issues \
 - **`/issues`** - Issues listing page with "New Issue" button navigation
 - **`/issues/new`** - New issue creation form with:
   - TextField for issue title
-  - TextArea for issue description  
+  - EasyMDE markdown editor for rich text description
   - Button for form submission
+  - Client-side rendering to prevent SSR issues
   - Responsive layout with Tailwind CSS spacing
 
 ## 🎨 Theme Configuration
