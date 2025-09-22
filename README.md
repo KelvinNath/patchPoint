@@ -8,9 +8,10 @@ A modern issue tracking application built with Next.js, TypeScript, and Tailwind
   - Bug icon logo using react-icons
   - Responsive navigation with smooth transitions
   - Active page detection using Next.js usePathname hook
-- **Issue Management**: Dedicated pages for issue tracking
-  - Issues page for detailed issue management
-  - Database schema ready for issue storage
+- **Issue Management**: Complete issue tracking system
+  - Issues page with Radix UI components
+  - RESTful API endpoints for CRUD operations
+  - Database schema with Issue model and status tracking
 - **Modern UI**: Clean, responsive design with Tailwind CSS
 - **Database Ready**: Prisma ORM configured for MySQL
 - **TypeScript**: Full type safety throughout the application
@@ -21,6 +22,8 @@ A modern issue tracking application built with Next.js, TypeScript, and Tailwind
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS 3.4.17
 - **Database**: Prisma ORM with MySQL
+- **UI Components**: Radix UI Themes for modern components
+- **Validation**: Zod for schema validation
 - **Utilities**: Classnames for conditional styling
 - **Icons**: React Icons
 - **State Management**: React hooks and Next.js navigation
@@ -30,13 +33,17 @@ A modern issue tracking application built with Next.js, TypeScript, and Tailwind
 ```
 patchpoint/
 ├── app/
+│   ├── api/
+│   │   └── issues/
+│   │       └── route.ts    # RESTful API endpoints for issues
 │   ├── NavBar.tsx          # Main navigation component with active states
 │   ├── page.tsx            # Home page
 │   ├── issues/
-│   │   └── page.tsx        # Issues management page
-│   ├── layout.tsx          # Root layout with NavBar integration
+│   │   └── page.tsx        # Issues management page with Radix UI
+│   ├── layout.tsx          # Root layout with NavBar and Theme integration
 │   └── globals.css         # Global styles with Tailwind CSS
 ├── prisma/
+│   ├── client.ts           # Prisma client configuration
 │   └── schema.prisma       # Database schema with Issue model (MySQL)
 ├── public/                 # Static assets
 └── package.json            # Dependencies and scripts
@@ -80,6 +87,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **Active Link Highlighting**: Navigation links change color based on current page
   - Blue for active page, green for inactive with hover effects
   - Smooth color transitions using classnames utility
+- **Modern Component Library**: Radix UI Themes for professional components
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Smooth Transitions**: CSS transitions for better user experience
 - **Modern Typography**: Clean, readable text with proper spacing
@@ -93,8 +101,29 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development
 - **Prisma Client**: Auto-generated database client for type-safe queries
 - **Classnames**: Utility for conditional CSS class management
+- **Radix UI**: Modern, accessible component library
+- **Zod**: Runtime type validation for API endpoints
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## 🔌 API Endpoints
+
+### Issues API (`/api/issues`)
+
+- **GET** - Retrieve all issues (ordered by creation date)
+- **POST** - Create a new issue with validation
+
+#### Example Usage:
+
+```bash
+# Get all issues
+curl http://localhost:3000/api/issues
+
+# Create a new issue
+curl -X POST http://localhost:3000/api/issues \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Bug Report", "description": "Issue description"}'
+```
 
 ## Learn More
 
